@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import  ShowStudents from './ShowStudComponent/ShowStudents';
+import DeleteStudents from './ShowStudComponent/DeleteStudents';
+import { AddStudent } from './ShowStudComponent/AddStudent';
+import { UpdateStudent } from './ShowStudComponent/UpdateStudent';
+
 import './App.css';
+import NavBar from './NavComponents/NavBar';
+import {Footer} from './FooterComponent/Footer';
+import { Route,Routes } from 'react-router-dom';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+    <header>
+      <NavBar></NavBar>
+    </header>
+     <Routes>
+      <Route path="/students/showall" element={<ShowStudents></ShowStudents>}></Route>
+      <Route path ="/students/delete/:id" element={<DeleteStudents></DeleteStudents>}></Route>
+      <Route path ="/students/add" element={<AddStudent></AddStudent>}></Route>
+      <Route path ="/students/search/:id" element={<ShowStudents></ShowStudents>}></Route>
+      <Route path ="/students/update/:upid" element={<UpdateStudent></UpdateStudent>}></Route>
+     </Routes>
+     
+       <Footer></Footer>
+     
     </div>
   );
 }
